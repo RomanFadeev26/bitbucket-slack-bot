@@ -1,0 +1,29 @@
+{
+  "name": "bitbucket-slack-master-conflict-bot",
+  "version": "1.0.0",
+  "description": "Bot which check your branches on conflict with master",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc -w",
+    "build": "tsc -b"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RomanFadeev26/bitbucket-slack-bot.git"
+  },
+  "author": "Roman Fadeev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RomanFadeev26/bitbucket-slack-bot/issues"
+  },
+  "homepage": "https://github.com/RomanFadeev26/bitbucket-slack-bot#readme",
+  "dependencies": {
+    "@types/node": "^11.9.4",
+    "@types/node-fetch": "^2.1.6",
+    "node-fetch": "^2.3.0"
+  },
+  "devDependencies": {
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.3"
+  }
+}
