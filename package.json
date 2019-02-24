@@ -18,9 +18,11 @@
   },
   "homepage": "https://github.com/RomanFadeev26/bitbucket-slack-bot#readme",
   "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/lodash": "^4.14.121",
     "@types/node": "^11.9.4",
-    "@types/node-fetch": "^2.1.6",
-    "node-fetch": "^2.3.0"
+    "axios": "^0.18.0",
+    "lodash": "^4.17.11"
   },
   "devDependencies": {
     "tslint": "^5.12.1",
