@@ -1,1 +1,1 @@
-export type credentials = "clientId" | "secret";
+export type credentials = "clientId" | "secret" | "username";

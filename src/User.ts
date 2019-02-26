@@ -8,6 +8,7 @@ interface IUser {
     getEncodeCredentials(): string;
     setAccessToken(token: string): void;
     getAccessToken(): string;
+    getUserName(): string;
     promptParameter(parameterName: credentials): void;
 }
 
@@ -15,11 +16,13 @@ export default class User implements IUser {
     private clientId: string;
     private secret: string;
     private accessToken: string;
+    private username: string;
 
     constructor() {
         this.clientId = "";
         this.secret = "";
         this.accessToken = "";
+        this.username = "";
     }
 
     public getClientId() {
@@ -44,6 +47,10 @@ export default class User implements IUser {
 
     public setAccessToken(token: string) {
         this.accessToken = token;
+    }
+
+    public getUserName() {
+        return this.username;
     }
 
     public async promptParameter(parameterName: credentials) {

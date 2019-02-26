@@ -39,8 +39,8 @@ export default class Request implements IRequest {
         return this.url;
     }
 
-    public setUrl(url: string) {
-        this.url = url;
+    public setUrl(url?: string) {
+        this.url = url || "";
     }
 
     public addUrl(path: string) {

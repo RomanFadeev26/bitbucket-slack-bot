@@ -1,6 +1,8 @@
 import Request from "./Request";
 import User from "./User";
 
+// "<<<<<<<" Только так можно определить конфликты
+
 interface IAuthorizationRequestAnswer {
     "access_token": string;
     "scopes": string;
