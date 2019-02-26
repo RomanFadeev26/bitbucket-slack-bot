@@ -55,7 +55,7 @@ export default class FetchPullRequests extends Request implements IFetchPullRequ
     }
 
     private fetchPullRequests() {
-        return this.post<IPullRequestsAnswer>();
+        return this.get<IPullRequestsAnswer>();
     }
 
 }
