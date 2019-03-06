@@ -1,4 +1,4 @@
-import { IPullRequest } from "./FetcherPullRequests";
+import { IPullRequest } from "./PullRequestsFetcher";
 
 interface IPullRequestConflict {
     branchName: string;

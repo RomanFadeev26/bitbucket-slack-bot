@@ -1,7 +1,7 @@
 import inputCredential from "./inputCredential";
 import { credentials } from "./types";
 
-interface IUser {
+export interface IUser {
     getClientId(): string;
     getSecret(): string;
     getCredentials(): string;

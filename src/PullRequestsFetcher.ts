@@ -1,5 +1,5 @@
 import Request from "./Request";
-import User from "./User";
+import { IUser } from "./User";
 
 export interface IPullRequest {
     links: {
@@ -19,17 +19,17 @@ export interface IPullRequestsAnswer {
     next?: string;
 }
 
-interface IFetchPullRequests {
+export interface IPullRequestsFetcher {
     getAllRequests(): IPullRequest[];
     fetchAllPullRequests(): Promise<void>;
 }
 
-export default class FetcherPullRequests extends Request implements IFetchPullRequests {
+export default class PullRequestsFetcher extends Request implements IPullRequestsFetcher {
 
-    private user: User;
+    private user: IUser;
     private pullRequests: IPullRequest[];
 
-    constructor(user: User) {
+    constructor(user: IUser) {
         super();
         this.user = user;
         this.addHeaders({

@@ -1,5 +1,5 @@
 import Request from "./Request";
-import User from "./User";
+import { IUser } from "./User";
 
 // "<<<<<<<" Только так можно определить конфликты
 
@@ -18,9 +18,9 @@ interface IAuthorization {
 export default class AuthorizationRequest extends Request implements IAuthorization {
 
     private credentials: string;
-    private user: User;
+    private user: IUser;
 
-    constructor(user: User) {
+    constructor(user: IUser) {
         super();
         this.user = user;
         this.credentials = user.getCredentials();
