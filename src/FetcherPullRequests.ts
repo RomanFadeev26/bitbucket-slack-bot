@@ -24,7 +24,7 @@ interface IFetchPullRequests {
     fetchAllPullRequests(): Promise<void>;
 }
 
-export default class FetchPullRequests extends Request implements IFetchPullRequests {
+export default class FetcherPullRequests extends Request implements IFetchPullRequests {
 
     private user: User;
     private pullRequests: IPullRequest[];
