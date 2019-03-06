@@ -1,4 +1,4 @@
-import LinkedList, { IListElement, ILinkedList } from "../LinkedList";
+import LinkedList, { ILinkedList } from "../LinkedList";
 
 describe("LinkedList", () => {
   it(".next worked", () => {
