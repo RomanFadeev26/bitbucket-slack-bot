@@ -2,8 +2,6 @@ import inputCredential from "./inputCredential";
 import { credentials } from "./types";
 
 export interface IUser {
-    getClientId(): string;
-    getSecret(): string;
     getCredentials(): string;
     getEncodeCredentials(): string;
     setAccessToken(token: string): void;

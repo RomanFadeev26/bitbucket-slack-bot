@@ -1,5 +1,4 @@
 import readline from "readline";
-import { credentials } from "./types";
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -7,7 +6,7 @@ const rl = readline.createInterface({
 });
 
 const inputCredential: (
-  credentialsType: credentials,
+  credentialsType: string,
 ) => Promise<string> = (credentialsType) => {
     return new Promise((resolve) => {
         rl.question(credentialsType, (answer: string) => {

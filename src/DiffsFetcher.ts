@@ -1,14 +1,14 @@
-import { IPullRequest } from "./PullRequestsFetcher";
+import { IPullRequest, IPullRequestsFetcher } from "./PullRequestsFetcher";
 import Request from "./Request";
 import { IUser } from "./User";
 
-interface IDiff {
+export interface IDiff {
     branchName: string;
     htmlLink: string;
     diff: string;
 }
 
-interface IDiffsFetcher {
+export interface IDiffsFetcher {
     fetchAllDiffs(): void;
     getAllDiffs(): IDiff[];
 }
@@ -16,13 +16,11 @@ interface IDiffsFetcher {
 export default class DiffsFetcher extends Request implements IDiffsFetcher {
     private pullRequests: IPullRequest[];
     private diffs: IDiff[];
-    private user: IUser;
 
-    constructor(pullRequests: IPullRequest[], user: IUser) {
+    constructor(pullRequestsFetcher: IPullRequestsFetcher, user: IUser) {
         super();
-        this.pullRequests = pullRequests;
+        this.pullRequests = pullRequestsFetcher.getAllRequests();
         this.diffs = [];
-        this.user = user;
         this.addHeaders({
             Authorization: `Bearer ${user.getAccessToken()}`,
         });

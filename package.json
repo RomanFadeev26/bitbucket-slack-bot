@@ -19,11 +19,10 @@
   },
   "homepage": "https://github.com/RomanFadeev26/bitbucket-slack-bot#readme",
   "dependencies": {
+    "@slack/client": "^4.11.0",
     "@types/axios": "^0.14.0",
-    "@types/lodash": "^4.14.121",
     "@types/node": "^11.9.4",
-    "axios": "^0.18.0",
-    "lodash": "^4.17.11"
+    "axios": "^0.18.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.9",
