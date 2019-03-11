@@ -1,3 +1,4 @@
+import { clientId, secret, username } from "./consts";
 import inputCredential from "./inputCredential";
 import { credentials } from "./types";
 
@@ -7,6 +8,7 @@ export interface IUser {
     setAccessToken(token: string): void;
     getAccessToken(): string;
     getUserName(): string;
+    setCredetials(): Promise<void>;
     promptParameter(parameterName: credentials): void;
 }
 
@@ -53,5 +55,11 @@ export default class User implements IUser {
 
     public async promptParameter(parameterName: credentials) {
         this[parameterName] = await inputCredential(parameterName);
+    }
+
+    public async setCredetials() {
+        await this.promptParameter(clientId);
+        await this.promptParameter(secret);
+        await this.promptParameter(username);
     }
 }

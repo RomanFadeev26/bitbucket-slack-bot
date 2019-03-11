@@ -34,7 +34,7 @@ export default class DiffsFetcher extends Request implements IDiffsFetcher {
                     ...restParams
                 }: IDiff) => {
                     this.setUrl(diffLink);
-                    const diff: string = await this.get();
+                    const diff: string = await this.get<string>();
                     return {
                         diff,
                         ...restParams,

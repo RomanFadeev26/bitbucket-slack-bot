@@ -25,14 +25,11 @@ export interface IPullRequestsFetcher {
 }
 
 export default class PullRequestsFetcher extends Request implements IPullRequestsFetcher {
-
-    private user: IUser;
     private pullRequests: IPullRequest[];
 
     constructor(user: IUser) {
         super();
-        this.user = user;
-        this.addHeaders({
+        this.setHeaders({
             Authorization: `Bearer ${user.getAccessToken()}`,
         });
         this.pullRequests = [];

@@ -11,8 +11,8 @@ interface IAuthorizationRequestAnswer {
     "token_type": string;
 }
 
-interface IAuthorization {
-    authorize(): void;
+export interface IAuthorization {
+    authorize(): Promise<void>;
 }
 
 export default class AuthorizationRequest extends Request implements IAuthorization {
@@ -24,8 +24,9 @@ export default class AuthorizationRequest extends Request implements IAuthorizat
         super();
         this.user = user;
         this.credentials = user.getCredentials();
-        this.addHeaders({
-            Authorization: user.getEncodeCredentials(),
+        this.setHeaders({
+            "Authorization": `Basic ${user.getEncodeCredentials()}`,
+            "content-type": "application/x-www-form-urlencoded",
         });
         this.setUrl(`https://${this.credentials}@bitbucket.org/site/oauth2/access_token`);
         this.setParameters({
@@ -33,7 +34,9 @@ export default class AuthorizationRequest extends Request implements IAuthorizat
         });
     }
 
-    public authorize() {
-        this.post<IAuthorizationRequestAnswer>().then(({access_token}) => this.user.setAccessToken(access_token));
+    public async authorize() {
+        const response = await this.post<IAuthorizationRequestAnswer>();
+        const { access_token } = response;
+        this.user.setAccessToken(access_token);
     }
 }

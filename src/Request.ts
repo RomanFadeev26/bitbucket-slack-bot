@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from "axios";
+import {stringify} from "querystring";
 
 interface IRequest {
     getHeaders(): object;
@@ -13,7 +14,7 @@ interface IRequest {
     post<T>(): Promise<T>;
 }
 
-export default class Request implements IRequest {
+export default abstract class Request implements IRequest {
     protected headers: object = {"Content-Type": "application/json"};
     protected url: string = "";
     protected parameters: object = {};
@@ -56,20 +57,36 @@ export default class Request implements IRequest {
     }
 
     public async get<T>(): Promise<T> {
-        const response: AxiosResponse = await axios.get(this.url, {
-            headers: this.headers,
-            params: this.parameters,
-        });
 
-        return response.data;
+        try {
+            const response: AxiosResponse = await axios({
+                headers: this.headers,
+                method: "GET",
+                params: this.parameters,
+                url: this.url,
+            });
+            console.log(response.data);
+            return response.data;
+        }   catch (e) {
+            console.log(e.response.data);
+            return e;
+        }
     }
 
     public async post<T>(): Promise<T> {
+        try {
+            const response: AxiosResponse = await axios({
+                data: stringify(this.parameters),
+                headers: this.headers,
+                method: "POST",
+                url: this.url,
+            });
+            console.log(response.data);
+            return response.data;
+        } catch (e) {
+            console.log(e.request);
+            return e;
+        }
 
-        const response: AxiosResponse = await axios.post(this.url, this.parameters, {
-            headers: this.headers,
-        });
-
-        return response.data;
     }
 }

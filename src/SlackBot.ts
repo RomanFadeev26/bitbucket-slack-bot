@@ -29,6 +29,7 @@ export default class SlackBot implements ISlackBot {
     this.createMessageBlocks().forEach(
       (blocks) => {
         webClient.chat.postMessage({
+          as_user: true,
           blocks,
           channel: this.conversationId,
           text: "Найдены конфликты с master",
@@ -67,11 +68,11 @@ export default class SlackBot implements ISlackBot {
     );
   }
 
-  private async setToken(): Promise<void> {
+  private async setToken() {
     this.token = await inputCredential("Slack token");
   }
 
-  private async setConversationId(): Promise<void> {
+  private async setConversationId() {
     this.conversationId = await inputCredential("Channel ID");
   }
 }
