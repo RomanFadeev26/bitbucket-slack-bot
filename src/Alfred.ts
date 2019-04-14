@@ -22,8 +22,7 @@ export default class Alfred implements IAlfred {
         const diffsFetcher: IDiffsFetcher = new DiffsFetcher(pullReqFetcher, user);
         await diffsFetcher.fetchAllDiffs();
         const conflictFinder: IConflictFinder = new ConflictFinder(diffsFetcher);
-        await conflictFinder.findAllConflicts();
-
+        conflictFinder.findAllConflicts();
         const bot: ISlackBot = new SlackBot(conflictFinder);
         await bot.setCredentials();
         bot.sendMessagesAboutConflicts();

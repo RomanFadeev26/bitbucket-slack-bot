@@ -65,7 +65,6 @@ export default abstract class Request implements IRequest {
                 params: this.parameters,
                 url: this.url,
             });
-            console.log(response.data);
             return response.data;
         }   catch (e) {
             console.log(e.response.data);
@@ -81,7 +80,6 @@ export default abstract class Request implements IRequest {
                 method: "POST",
                 url: this.url,
             });
-            console.log(response.data);
             return response.data;
         } catch (e) {
             console.log(e.request);

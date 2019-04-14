@@ -35,6 +35,7 @@ export default class DiffsFetcher extends Request implements IDiffsFetcher {
                 }: IDiff) => {
                     this.setUrl(diffLink);
                     const diff: string = await this.get<string>();
+                    console.log("DIFFS FETCHED");
                     return {
                         diff,
                         ...restParams,
@@ -48,7 +49,7 @@ export default class DiffsFetcher extends Request implements IDiffsFetcher {
         return this.diffs;
     }
 
-    private getAllDiffsWithLinks(): IDiff[] {
+    public getAllDiffsWithLinks(): IDiff[] {
         return this.pullRequests.map(
             ({
                 links: {

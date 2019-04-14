@@ -38,9 +38,9 @@ export default class PullRequestsFetcher extends Request implements IPullRequest
 
     public async fetchAllPullRequests() {
         const pullRequestsPage: IPullRequestsAnswer = await this.fetchPullRequests();
-
         const { values, next } = pullRequestsPage;
-        this.pullRequests.concat(values);
+        const fetchedBeforeRequests = this.pullRequests;
+        this.pullRequests = [...fetchedBeforeRequests, ...values];
         if (Boolean(next)) {
             this.setUrl(next);
             this.fetchAllPullRequests();
