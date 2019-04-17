@@ -12,6 +12,7 @@ export interface IPullRequest {
             name: string;
         },
     };
+    state: string;
 }
 
 export interface IPullRequestsAnswer {
@@ -43,7 +44,7 @@ export default class PullRequestsFetcher extends Request implements IPullRequest
         this.pullRequests = [...fetchedBeforeRequests, ...values];
         if (Boolean(next)) {
             this.setUrl(next);
-            this.fetchAllPullRequests();
+            await this.fetchAllPullRequests();
         }
     }
 

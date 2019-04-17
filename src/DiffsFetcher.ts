@@ -35,7 +35,7 @@ export default class DiffsFetcher extends Request implements IDiffsFetcher {
                 }: IDiff) => {
                     this.setUrl(diffLink);
                     const diff: string = await this.get<string>();
-                    console.log("DIFFS FETCHED");
+                    console.log(`DIFFS FETCHED: ${restParams.branchName}`);
                     return {
                         diff,
                         ...restParams,
