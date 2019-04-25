@@ -1,6 +1,4 @@
 import { readFileSync } from "fs";
-import { createInterface } from "readline";
-import LinkedList, { ILinkedList } from "./LinkedList/LinkedList";
 
 const credentialsGenerator = function *() {
     const fileContent = readFileSync("credentials.txt", "utf8").split(" ");
