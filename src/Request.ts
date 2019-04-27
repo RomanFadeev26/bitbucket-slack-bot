@@ -67,7 +67,6 @@ export default abstract class Request implements IRequest {
             });
             return response.data;
         }   catch (e) {
-            console.log(e.response.data);
             return e;
         }
     }
@@ -82,7 +81,8 @@ export default abstract class Request implements IRequest {
             });
             return response.data;
         } catch (e) {
-            console.log(e.request);
+            // tslint:disable-next-line:no-console
+            console.log("ERROR WHEN WE DID SOME REQUEST TO SERVER");
             return e;
         }
 

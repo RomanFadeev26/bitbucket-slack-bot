@@ -8,7 +8,7 @@ export interface IUser {
     setAccessToken(token: string): void;
     getAccessToken(): string;
     getUserName(): string;
-    setCredetials(): Promise<void>;
+    setCredentials(): Promise<void>;
     promptParameter(parameterName: credentials): void;
 }
 
@@ -54,10 +54,10 @@ export default class User implements IUser {
     }
 
     public async promptParameter(parameterName: credentials) {
-        this[parameterName] = await inputCredential(parameterName);
+        this[parameterName] = await inputCredential();
     }
 
-    public async setCredetials() {
+    public async setCredentials() {
         await this.promptParameter(clientId);
         await this.promptParameter(secret);
         await this.promptParameter(username);

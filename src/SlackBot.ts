@@ -69,10 +69,10 @@ export default class SlackBot implements ISlackBot {
   }
 
   private async setToken() {
-    this.token = await inputCredential("Slack token");
+    this.token = await inputCredential();
   }
 
   private async setConversationId() {
-    this.conversationId = await inputCredential("Channel ID");
+    this.conversationId = await inputCredential();
   }
 }

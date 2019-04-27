@@ -14,7 +14,7 @@ export default class Alfred implements IAlfred {
     public async run(): Promise<void> {
 
         const user: IUser = new User();
-        await user.setCredetials();
+        await user.setCredentials();
         const authRequest: IAuthorization = new AuthorizationRequest(user);
         await authRequest.authorize();
         const pullReqFetcher: IPullRequestsFetcher = new PullRequestsFetcher(user);
@@ -26,5 +26,7 @@ export default class Alfred implements IAlfred {
         const bot: ISlackBot = new SlackBot(conflictFinder);
         await bot.setCredentials();
         bot.sendMessagesAboutConflicts();
+        // tslint:disable-next-line:no-console
+        console.log("END CYCLE");
     }
 }

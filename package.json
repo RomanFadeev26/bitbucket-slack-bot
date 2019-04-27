@@ -4,6 +4,7 @@
   "description": "Bot which check your branches on conflict with master",
   "main": "index.js",
   "scripts": {
+    "alfred": "node ./dist/main.js",
     "start": "tsc -w",
     "build": "tsc -b",
     "test": "jest"
