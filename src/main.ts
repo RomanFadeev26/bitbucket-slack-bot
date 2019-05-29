@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import Alfred from "./Alfred";
 
 const AlfredBot = new Alfred();

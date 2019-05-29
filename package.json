@@ -9,6 +9,9 @@
     "build": "tsc -b",
     "test": "jest"
   },
+  "bin": {
+    "alfred": "./dist/main.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RomanFadeev26/bitbucket-slack-bot.git"

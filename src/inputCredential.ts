@@ -5,9 +5,11 @@ interface ICredentialsIterator extends Iterable<string> {
   values: string[];
 }
 
+const [, , path] = process.argv;
+
 const credentialsIterator: ICredentialsIterator = {
   currentIndex: 0,
-  values: readFileSync("credentials.txt", "utf8").split(" "),
+  values: readFileSync(path, "utf8").split(" "),
   [Symbol.iterator]() {
     return {
       next: () => {
